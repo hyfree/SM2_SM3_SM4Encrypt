@@ -74,6 +74,31 @@ ECB解密结果:I Love You
 想详细了解DER编码的道友可以参考这篇文章: [ECC公钥格式详解](https://www.cnblogs.com/xinzhao/p/8963724.html)
 
 > 需要注意的是 , 在本项目中硬件加密机中公钥的头为"3059301306072A8648CE3D020106082A811CCF5501822D03420004" , 而软加密中的公钥头为"04" , 如果有需要对接加密机的道友 , 需要注意这里公钥头的问题 。 在类SM2KeyVO.java中的getPubHexInHard()和getPriHexInSoft()方法就是用来解决软件加密和硬件加密机中头不一致的问题。
+### SM2椭圆取曲线推荐参数说明
+
+本项目使用了非国密推荐的曲线参数，如果计算错误，请确认是否需要将曲线参数替换为标准参数，请检查SM2的椭圆曲线推荐参数。
+
+```java
+    //国密参数
+    public static String[] ecc_param = {
+            "FFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000FFFFFFFFFFFFFFFF",
+            "FFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000FFFFFFFFFFFFFFFC",
+            "28E9FA9E9D9F5E344D5A9E4BCF6509A7F39789F515AB8F92DDBCBD414D940E93",
+            "FFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFF7203DF6B21C6052B53BBF40939D54123",
+            "32C4AE2C1F1981195F9904466A39C9948FE30BBFF2660BE1715A4589334C74C7",
+            "BC3736A2F4F6779C59BDCEE36B692153D0A9877CC62A474002DF32E52139F0A0"
+    };
+
+```
+
+### USERID说明
+请参阅SM2椭圆曲线公钥密码算法-P54 用户其他信息一栏。
+USERID非IDa
+
+```plain
+设用户A的身份是：ALICE123@YAHOO.COM。用ASCII编码记ID A :
+414C 49434531 32334059 41484F4F 2E434F4D。ENTL A =0090。
+```
 
 
 ### SM2签名说明
