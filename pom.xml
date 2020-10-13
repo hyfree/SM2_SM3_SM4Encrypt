@@ -12,7 +12,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.13.1</version>
         </dependency>
         <!--国密依赖包-->
         <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
